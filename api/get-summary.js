@@ -23,13 +23,26 @@ export default async function handler(req, res) {
 
         const json = await response.json();
 
-        if (json.candidates && json.candidates[0]?.content?.parts?.[0]?.text) {
-            return res.status(200).json({ summary: json.candidates[0].content.parts[0].text });
-        } else {
-            // 如果還是失敗，我們會把 Google 給出的完整錯誤傳回前端，請看網頁顯示什麼
-            return res.status(200).json({ summary: `AI 回應異常: ${json.error?.message || "無法解析回應"}` });
+        // --- 防撞檢查開始 ---
+        
+        // 1. 檢查 Google 是否回傳了錯誤物件
+        if (json.error) {
+            console.error("Google API Error:", json.error);
+            return res.status(200).json({ summary: `❌ [API 錯誤]：${json.error.message}` });
         }
+
+        // 2. 安全地讀取 candidates[0]
+        if (json.candidates && json.candidates.length > 0 && json.candidates[0].content) {
+            const aiText = json.candidates[0].content.parts[0].text;
+            return res.status(200).json({ summary: aiText });
+        } else {
+            // 如果走到這裡，代表回應格式不是我們預期的
+            console.log("Unexpected JSON structure:", json);
+            return res.status(200).json({ summary: "⚠️ AI 回傳格式異常，可能是該模型不支援此類請求。" });
+        }
+
     } catch (err) {
-        return res.status(500).json({ error: '連線失敗' });
+        console.error("Runtime Error:", err);
+        return res.status(200).json({ summary: `🔥 系統崩潰：${err.message}` });
     }
 }
