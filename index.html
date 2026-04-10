@@ -84,7 +84,7 @@
         // 初始化 Gemini 實例
         try {
             genAI = new GoogleGenerativeAI(API_KEY);
-            model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
         } catch (e) {
             console.error("Gemini 初始化失敗:", e);
         }
