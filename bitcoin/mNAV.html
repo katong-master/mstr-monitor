@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAT.co 監測平台 - 專業儀表板</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <nav class="bg-white border-b border-gray-200 p-4">
+        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
+            <span class="text-xl font-bold text-blue-600 tracking-tight">DAT.CO <span class="text-gray-800">MONITOR</span></span>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+                <span class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> System Live</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-[1400px] mx-auto py-8 px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div class="flex gap-4">
+                <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
+                    <span class="text-xs text-gray-400 block">Frequency</span>
+                    <span class="font-mono font-bold text-gray-700">Real-time</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
+            <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
+                <span class="text-sm font-medium text-gray-600">Interactive Data Visualization</span>
+                <span class="text-xs text-blue-500 font-semibold">Source: Strategy.co</span>
+            </div>
+            
+            <div class="w-full h-[650px] bg-slate-50">
+                <iframe 
+                    src="https://saylortracker.com/?tab=charts" 
+                    class="w-full h-full border-0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+
+            <div class="bg-slate-900 p-6 rounded-xl shadow-lg text-white">
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                        <span class="text-xs">AI</span>
+                    </div>
+                    <h3 class="font-bold text-lg">Smart Insights</h3>
+                </div>
+                <p id="ai-output" class="text-gray-400 text-sm leading-relaxed mb-6">
+                    點擊按鈕獲取當前數據的 AI 趨勢分析報告...
+                </p>
+                <button onclick="simulateAI()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-lg shadow-blue-900/20">
+                    Generate Analysis
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-400 text-sm">
+        <p>© 2024 FinTech Assignment - Digital Asset Monitor</p>
+    </footer>
+
+    <script>
+        function simulateAI() {
+            const btn = document.querySelector('button');
+            const output = document.getElementById('ai-output');
+            
+            btn.innerText = "Analyzing...";
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                output.innerText = "【AI 報告】根據當前 mNAV 數據，溢價率正處於健康區間（12-15%）。目前尚未觀察到極端投機行為，這與比特幣近期的現貨流入趨勢一致。建議投資者持續觀察 18% 的關鍵阻力水平。";
+                btn.innerText = "Refresh Analysis";
+                btn.disabled = false;
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
