@@ -23,23 +23,12 @@
     </nav>
 
     <main class="max-w-[1400px] mx-auto py-8 px-6">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div class="flex gap-4">
-                <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
-                    <span class="text-xs text-gray-400 block">Frequency</span>
-                    <span class="font-mono font-bold text-gray-700">Daily Update</span>
-                </div>
-            </div>
-        </div>
-
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
             <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-600"以下為 Strategy 的多項 finacial indicator ， 建議可以下滑至mNAV數據著重觀察並利用AI助理</span>
+                <span class="text-sm font-medium text-gray-600">以下為 Strategy 的多項 finacial indicator ， 建議可以下滑至mNAV數據著重觀察並利用AI助理</span>
                 <span class="text-xs text-blue-500 font-semibold">Source: Saylor Tracker</span>
             </div>
-            
-            <div class="w-full h-[650px] bg-slate-50">
+            <div class="w-full h-[600px] bg-slate-50">
                 <iframe src="https://saylortracker.com/?tab=charts" class="w-full h-full border-0" allowfullscreen></iframe>
             </div>
         </div>
@@ -54,14 +43,14 @@
                 </div>
 
                 <div id="chat-window" class="flex-grow overflow-y-auto space-y-4 mb-4 pr-2 text-sm custom-scrollbar">
-                    <p class="text-gray-400 italic">準備就緒，點擊下方按鈕以讀取最新數據分析報告...</p>
+                    <p class="text-gray-400 italic">準備就緒，點擊 Generate 讀取最新數據...</p>
                 </div>
 
                 <div id="chat-input-area" class="hidden border-t border-slate-800 pt-4">
                     <div class="flex gap-2">
                         <input type="text" id="user-input" 
                                class="flex-grow bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-white" 
-                               placeholder="詢問關於數據的細節...">
+                               placeholder="詢問更多細節...">
                         <button onclick="handleUserQuery()" class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-bold transition">發送</button>
                     </div>
                 </div>
@@ -72,10 +61,6 @@
             </div>
         </div>
     </main>
-
-    <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-400 text-sm">
-        <p>© 2026 FinTech Assignment - Digital Asset Monitor</p>
-    </footer>
 
     <script type="importmap">
     {
@@ -88,40 +73,48 @@
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        // 1. 確保引號內沒有中文、沒有空格
-const RAW_KEY = "AIzaSyCEdVJRI0XlB1pzIO27YIjz1u-CwZQATZI"; 
-
-// 2. 使用 .trim() 強制去除首尾不可見字元
-const API_KEY = RAW_KEY.trim(); 
-
-const genAI = new GoogleGenerativeAI(API_KEY);
+        // --- 初始化配置 ---
+        // 1. 請務必確認 API Key 正確且無空格
+        const API_KEY = "你的_GEMINI_API_KEY_貼在這裡".trim(); 
+        
+        let genAI;
+        let model;
         let chat = null;
 
-        // 啟動分析：讀取本地 indicator.json
+        // 初始化 Gemini 實例
+        try {
+            genAI = new GoogleGenerativeAI(API_KEY);
+            model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        } catch (e) {
+            console.error("Gemini 初始化失敗:", e);
+        }
+
+        // --- 定義全域函數以供 HTML onclick 呼叫 ---
+
         window.startAIAnalysis = async () => {
             const chatWindow = document.getElementById('chat-window');
             const genBtn = document.getElementById('generate-btn');
             const inputArea = document.getElementById('chat-input-area');
 
-            chatWindow.innerHTML = '<p class="text-blue-400 animate-pulse">正在閱讀截至今日的mNAV數據檔案並分析...</p>';
+            if (!model) {
+                chatWindow.innerHTML = '<p class="text-red-400">錯誤：AI 模型未正確載入，請檢查 API Key。</p>';
+                return;
+            }
+
+            chatWindow.innerHTML = '<p class="text-blue-400 animate-pulse">正在讀取 indicator.json 並分析...</p>';
             genBtn.style.display = 'none';
 
             try {
-                // 讀取 indicator.json
-                const response = await fetch('data/indicator.json');
+                const response = await fetch('indicator.json');
                 const data = await response.json();
 
-                // 建立 AI 上下文 (Context)
                 const prompt = `
-                    你是一位專業的比特幣財務分析助手。請根據以下 DAT.co 監測平台的數據撰寫報告：
-                    - 報告日期：${data.summary.latestDate}
-                    - 最新持倉：${data.summary.latestBtcHoldings} BTC
-                    - 比特幣單價：$${data.summary.latestBtcPriceUsd}
-                    - 每股資產淨值 (NAV)：$${data.summary.latestBtcNavPerDilutedShareUsd}
-                    - 30天 NAV 變化：${data.summary.navChange30dPct}%
-                    - 官方數據總結：${data.summary.autoSummary}
-                    
-                    請用繁體中文回覆。第一部分先給出專業的現狀分析，第二部分邀請使用者繼續提問。
+                    你是一位專業助理。請根據以下數據進行分析：
+                    報告日期：${data.summary.latestDate}
+                    BTC持倉：${data.summary.latestBtcHoldings}
+                    NAV：$${data.summary.latestBtcNavPerDilutedShareUsd}
+                    總結：${data.summary.autoSummary}
+                    請用繁體中文提供現狀分析，並邀請使用者提問。
                 `;
 
                 chat = model.startChat({ history: [] });
@@ -130,12 +123,11 @@ const genAI = new GoogleGenerativeAI(API_KEY);
                 chatWindow.innerHTML = `<div class="bg-slate-800 p-3 rounded-lg border-l-4 border-blue-500 text-gray-200">${result.response.text()}</div>`;
                 inputArea.classList.remove('hidden');
             } catch (error) {
-                chatWindow.innerHTML = `<p class="text-red-400">錯誤：無法讀取數據或 API 呼叫失敗 (${error.message})</p>`;
+                chatWindow.innerHTML = `<p class="text-red-400">錯誤：${error.message}</p>`;
                 genBtn.style.display = 'block';
             }
         };
 
-        // 處理使用者後續提問
         window.handleUserQuery = async () => {
             const input = document.getElementById('user-input');
             const chatWindow = document.getElementById('chat-window');
@@ -143,14 +135,12 @@ const genAI = new GoogleGenerativeAI(API_KEY);
 
             if (!text || !chat) return;
 
-            // 顯示使用者訊息
             chatWindow.innerHTML += `<div class="text-right"><span class="inline-block bg-blue-600 px-3 py-2 rounded-lg mt-4 shadow-md text-white">${text}</span></div>`;
             input.value = '';
 
-            // AI 思考提示
             const loading = document.createElement('p');
             loading.className = 'text-gray-500 text-xs italic mt-2';
-            loading.innerText = 'AI 正在處理中...';
+            loading.innerText = 'AI 思考中...';
             chatWindow.appendChild(loading);
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
@@ -159,7 +149,7 @@ const genAI = new GoogleGenerativeAI(API_KEY);
                 loading.remove();
                 chatWindow.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-gray-200 mt-2 border border-slate-700">${result.response.text()}</div>`;
             } catch (error) {
-                loading.innerText = '抱歉，處理請求時發生錯誤。';
+                loading.innerText = '呼叫失敗，請稍後再試。';
             }
             chatWindow.scrollTop = chatWindow.scrollHeight;
         };
