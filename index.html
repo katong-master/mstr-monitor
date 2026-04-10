@@ -1,121 +1,114 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAT.co 監測平台 - 專業儀表板</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans">
-
-    <nav class="bg-white border-b border-gray-200 p-4">
-        <div class="max-w-[1400px] mx-auto flex justify-between items-center">
-            <span class="text-xl font-bold text-blue-600 tracking-tight">DAT.CO <span class="text-gray-800">MONITOR</span></span>
-            <div class="flex items-center space-x-4 text-sm text-gray-500">
-                <span class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> System Live</span>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
+    <div class="bg-slate-900 p-6 rounded-xl shadow-lg text-white flex flex-col h-[600px]">
+        <div class="flex items-center mb-4">
+            <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                <span class="text-xs">AI</span>
             </div>
+            <h3 class="font-bold text-lg">DAT.co 策略助手</h3>
         </div>
-    </nav>
-
-    <main class="max-w-[1400px] mx-auto py-8 px-6">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div class="flex gap-4">
-                <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
-                    <span class="text-xs text-gray-400 block">Frequency</span>
-                    <span class="font-mono font-bold text-gray-700">Daily Update</span>
-                </div>
-            </div>
+        <div id="chat-window" class="flex-grow overflow-y-auto space-y-4 mb-4 pr-2 text-sm scrollbar-thin scrollbar-thumb-slate-700">
+            <div class="text-gray-400 italic">準備就緒，請點擊按鈕生成分析報告...</div>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
-            <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-600">以下為 Strategy 之各項indicator ， 可以下滑至mNAV部分重點觀察並配合AI助手</span>
-                <span class="text-xs text-blue-500 font-semibold">Source: Saylor Tracker</span>
-            </div>
-            
-            <div class="w-full h-[650px] bg-slate-50">
-                <iframe 
-                    src="https://saylortracker.com/?tab=charts" 
-                    class="w-full h-full border-0"
-                    allowfullscreen>
-                </iframe>
-            </div>
+        <div id="chat-input-area" class="hidden flex gap-2 border-t border-slate-800 pt-4">
+            <input type="text" id="user-input" 
+                   class="flex-grow bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 text-white" 
+                   placeholder="詢問更多細節...">
+            <button onclick="handleUserQuery()" class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-sm font-bold transition">送出</button>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
-            <div class="bg-slate-900 p-6 rounded-xl shadow-lg text-white">
-                <div class="flex items-center mb-4">
-                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
-                        <span class="text-xs">AI</span>
-                    </div>
-                    <h3 class="font-bold text-lg">Smart Insights</h3>
-                </div>
-                <p id="ai-output" class="text-gray-400 text-sm leading-relaxed mb-6">
-                    點擊按鈕獲取基於最新 mNAV 數據的 AI 趨勢分析報告...
-                </p>
-                <button onclick="fetchAI()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-lg shadow-blue-900/20">
-                    Generate Analysis
-                </button>
-            </div>
-        </div>
-    </main>
+        <button id="generate-btn" onclick="startAIAnalysis()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition">
+            Generate Analysis
+        </button>
+    </div>
+</div>
 
-    <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-400 text-sm">
-        <p>© 2026 FinTech Assignment - Digital Asset Monitor</p>
-    </footer>
+<script type="importmap">
+{
+    "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+    }
+}
+</script>
 
-    <script>
-        async function fetchAI() {
-            const output = document.getElementById('ai-output'); 
-            const btn = document.querySelector('button');
-            const originalBtnText = btn.innerText;
-            
-            output.innerText = "正在讀取 indicator.json 並連線 Gemini AI...";
-            btn.disabled = true;
-            btn.innerText = "Analyzing...";
+<script type="module">
+    import { GoogleGenerativeAI } from "@google/generative-ai";
 
-            try {
-                // 1. 抓取剛剛由 Python 腳本更新的 indicator.json
-                // 使用 ts=Date.now() 避免瀏覽器快取舊數據
-                const response = await fetch(`./data/indicator.json?ts=${Date.now()}`);
-                if (!response.ok) throw new Error("無法讀取數據檔案");
+    // 注意：在靜態網頁中，這把 Key 是公開的。
+    const API_KEY = "你的_GEMINI_API_KEY"; 
+    const genAI = new GoogleGenerativeAI(API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    let chat = null;
+
+    // 1. 初始化分析：讀取 JSON 並發出第一個指令
+    window.startAIAnalysis = async () => {
+        const chatWindow = document.getElementById('chat-window');
+        const genBtn = document.getElementById('generate-btn');
+        const inputArea = document.getElementById('chat-input-area');
+
+        chatWindow.innerHTML = '<div class="text-blue-400 animate-pulse">正在讀取數據並分析趨勢...</div>';
+        genBtn.style.display = 'none';
+
+        try {
+            // 讀取你的 indicator.json
+            const response = await fetch('indicator.json');
+            const jsonData = await response.json();
+
+            // 準備餵給 AI 的上下文
+            const context = `
+                你是一位專業的比特幣投資分析師。
+                以下是當前的市場監測數據：
+                - 最新日期：${jsonData.summary.latestDate}
+                - 比特幣持倉：${jsonData.summary.latestBtcHoldings} BTC
+                - 每股權益 (NAV)：$${jsonData.summary.latestBtcNavPerDilutedShareUsd}
+                - 比特幣價格：$${jsonData.summary.latestBtcPriceUsd}
+                - 數據總結：${jsonData.summary.autoSummary}
                 
-                const data = await response.json();
-                
-                // 2. 從 JSON 中提取最新摘要資訊 (對應你提供的數據結構)
-                const s = data.summary;
-                const promptData = `
-                    日期: ${s.latestDate}
-                    BTC 每股淨值 (NAV/Share): $${s.latestBtcNavPerDilutedShareUsd.toFixed(2)}
-                    BTC 持倉量: ${s.latestBtcHoldings} BTC
-                    BTC 價格: $${s.latestBtcPriceUsd}
-                    30天 NAV 變化: ${s.navChange30dPct}%
-                `;
+                請根據以上數據做一個簡短的繁體中文分析，並說明 NAV 變動的主因。最後，請告訴使用者你可以針對這些數據回答更多細節。
+            `;
 
-                // 3. 送往你的 Vercel Serverless Function (/api/get-summary.js)
-                const aiRes = await fetch('/api/get-summary', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ data: promptData })
-                });
+            // 啟動對話模式
+            chat = model.startChat({ history: [] });
+            const result = await chat.sendMessage(context);
+            const responseText = result.response.text();
 
-                if (!aiRes.ok) throw new Error("AI API 回應錯誤");
+            chatWindow.innerHTML = `<div class="bg-slate-800 p-4 rounded-lg text-gray-200 leading-relaxed shadow-inner border border-slate-700">${responseText}</div>`;
+            inputArea.classList.remove('hidden');
 
-                const result = await aiRes.json();
-                
-                // 顯示 AI 生成的結果
-                output.innerText = result.summary;
-
-            } catch (error) {
-                console.error(error);
-                output.innerText = "分析失敗。請確認：\n1. data/indicator.json 內容正確\n2. Vercel 環境變數 GEMINI_API_KEY 已設定";
-            } finally {
-                btn.disabled = false;
-                btn.innerText = originalBtnText;
-            }
+        } catch (error) {
+            chatWindow.innerHTML = `<div class="text-red-400">分析失敗：${error.message}</div>`;
+            genBtn.style.display = 'block';
         }
-    </script>
+    };
 
-</body>
-</html>
+    // 2. 處理使用者後續提問
+    window.handleUserQuery = async () => {
+        const input = document.getElementById('user-input');
+        const chatWindow = document.getElementById('chat-window');
+        const text = input.value.trim();
+
+        if (!text || !chat) return;
+
+        // 顯示使用者問題
+        chatWindow.innerHTML += `<div class="text-right"><span class="inline-block bg-blue-700 px-3 py-2 rounded-lg mt-4 shadow-md">${text}</span></div>`;
+        input.value = '';
+
+        // 顯示 AI 思考狀態
+        const loadingMsg = document.createElement('div');
+        loadingMsg.className = 'text-gray-500 text-xs italic mt-2';
+        loadingMsg.innerText = 'AI 正在回覆中...';
+        chatWindow.appendChild(loadingMsg);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+
+        try {
+            const result = await chat.sendMessage(text);
+            loadingMsg.remove();
+            chatWindow.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-gray-200 mt-2 border border-slate-700">${result.response.text()}</div>`;
+        } catch (error) {
+            loadingMsg.innerText = '抱歉，發生了點錯誤。';
+        }
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    };
+</script>
