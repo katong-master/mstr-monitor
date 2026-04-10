@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
     try {
         // 使用目前最標準的 v1beta 搭配 gemini-1.5-flash 字串
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
         
         const response = await fetch(url, {
             method: 'POST',
