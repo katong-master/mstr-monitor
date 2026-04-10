@@ -5,12 +5,12 @@ export default async function handler(req, res) {
     const { data } = req.body;
 
     if (!API_KEY) {
-        return res.status(200).json({ summary: "❌ [伺服器錯誤]：找不到環境變數 GEMINI_API_KEY。" });
+        return res.status(200).json({ summary: "❌ [系統錯誤]：未設定 GEMINI_API_KEY。" });
     }
 
     try {
-        // 使用目前最標準的 v1beta 搭配 gemini-1.5-flash 字串
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+        // 使用 v1 正式版網址，這是 2026 年最穩定的路徑
+        const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
         
         const response = await fetch(url, {
             method: 'POST',
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 contents: [{
                     parts: [{ 
-                        text: `你是一位分析 Strategy (MSTR) 的財經分析師。請根據以下數據寫一段 80 字內的短評：${data}` 
+                        text: `你是一位分析 Strategy (MSTR) 的財經專家。請根據數據寫一段 80 字內的分析：${data}` 
                     }]
                 }]
             })
@@ -26,19 +26,23 @@ export default async function handler(req, res) {
 
         const json = await response.json();
 
-        // 捕捉 Google 的錯誤
+        // 核心錯誤排查邏輯
         if (json.error) {
-            // 如果這行報錯，通常與 API Key 的權限或地區有關
-            return res.status(200).json({ summary: `❌ [Google API 錯誤]：${json.error.message}` });
+            // 如果還是報 not found，代表你的 API Key 權限有問題
+            let errorMsg = json.error.message;
+            if (errorMsg.includes("not found")) {
+                errorMsg = "Google 找不到此模型。這通常是因為：\n1. API Key 地區受限 (香港/內地暫不支援)\n2. 該 Key 未在 Google AI Studio 啟用 Gemini API";
+            }
+            return res.status(200).json({ summary: `❌ [API 錯誤]：${errorMsg}` });
         }
 
         if (json.candidates && json.candidates[0]?.content?.parts?.[0]?.text) {
             return res.status(200).json({ summary: json.candidates[0].content.parts[0].text });
         } else {
-            return res.status(200).json({ summary: "⚠️ AI 回傳格式不正確，可能是內容遭安全過濾。" });
+            return res.status(200).json({ summary: "⚠️ AI 已回應但無內容，請確認數據是否包含敏感資訊。" });
         }
 
     } catch (err) {
-        return res.status(200).json({ summary: `🔥 系統崩潰：${err.message}` });
+        return res.status(200).json({ summary: `🔥 [系統崩潰]：${err.message}` });
     }
 }
