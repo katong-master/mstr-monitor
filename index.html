@@ -23,15 +23,15 @@
             <div class="flex gap-4">
                 <div class="bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200">
                     <span class="text-xs text-gray-400 block">Frequency</span>
-                    <span class="font-mono font-bold text-gray-700">Real-time</span>
+                    <span class="font-mono font-bold text-gray-700">Daily Update</span>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
             <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-600">Interactive Data Visualization</span>
-                <span class="text-xs text-blue-500 font-semibold">Source: Strategy.co</span>
+                <span class="text-sm font-medium text-gray-600">Real-Time Treasury Analytics</span>
+                <span class="text-xs text-blue-500 font-semibold">Source: Saylor Tracker</span>
             </div>
             
             <div class="w-full h-[650px] bg-slate-50">
@@ -44,7 +44,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-12">
-
             <div class="bg-slate-900 p-6 rounded-xl shadow-lg text-white">
                 <div class="flex items-center mb-4">
                     <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
@@ -53,33 +52,68 @@
                     <h3 class="font-bold text-lg">Smart Insights</h3>
                 </div>
                 <p id="ai-output" class="text-gray-400 text-sm leading-relaxed mb-6">
-                    點擊按鈕獲取當前數據的 AI 趨勢分析報告...
+                    點擊按鈕獲取基於最新 mNAV 數據的 AI 趨勢分析報告...
                 </p>
-                <button onclick="simulateAI()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-lg shadow-blue-900/20">
+                <button onclick="fetchAI()" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition shadow-lg shadow-blue-900/20">
                     Generate Analysis
                 </button>
             </div>
-
         </div>
     </main>
 
     <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-400 text-sm">
-        <p>© 2024 FinTech Assignment - Digital Asset Monitor</p>
+        <p>© 2026 FinTech Assignment - Digital Asset Monitor</p>
     </footer>
 
     <script>
-        function simulateAI() {
+        async function fetchAI() {
+            const output = document.getElementById('ai-output'); 
             const btn = document.querySelector('button');
-            const output = document.getElementById('ai-output');
+            const originalBtnText = btn.innerText;
             
-            btn.innerText = "Analyzing...";
+            output.innerText = "正在讀取 indicator.json 並連線 Gemini AI...";
             btn.disabled = true;
-            
-            setTimeout(() => {
-                output.innerText = "【AI 報告】根據當前 mNAV 數據，溢價率正處於健康區間（12-15%）。目前尚未觀察到極端投機行為，這與比特幣近期的現貨流入趨勢一致。建議投資者持續觀察 18% 的關鍵阻力水平。";
-                btn.innerText = "Refresh Analysis";
+            btn.innerText = "Analyzing...";
+
+            try {
+                // 1. 抓取剛剛由 Python 腳本更新的 indicator.json
+                // 使用 ts=Date.now() 避免瀏覽器快取舊數據
+                const response = await fetch(`./data/indicator.json?ts=${Date.now()}`);
+                if (!response.ok) throw new Error("無法讀取數據檔案");
+                
+                const data = await response.json();
+                
+                // 2. 從 JSON 中提取最新摘要資訊 (對應你提供的數據結構)
+                const s = data.summary;
+                const promptData = `
+                    日期: ${s.latestDate}
+                    BTC 每股淨值 (NAV/Share): $${s.latestBtcNavPerDilutedShareUsd.toFixed(2)}
+                    BTC 持倉量: ${s.latestBtcHoldings} BTC
+                    BTC 價格: $${s.latestBtcPriceUsd}
+                    30天 NAV 變化: ${s.navChange30dPct}%
+                `;
+
+                // 3. 送往你的 Vercel Serverless Function (/api/get-summary.js)
+                const aiRes = await fetch('/api/get-summary', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data: promptData })
+                });
+
+                if (!aiRes.ok) throw new Error("AI API 回應錯誤");
+
+                const result = await aiRes.json();
+                
+                // 顯示 AI 生成的結果
+                output.innerText = result.summary;
+
+            } catch (error) {
+                console.error(error);
+                output.innerText = "分析失敗。請確認：\n1. data/indicator.json 內容正確\n2. Vercel 環境變數 GEMINI_API_KEY 已設定";
+            } finally {
                 btn.disabled = false;
-            }, 1000);
+                btn.innerText = originalBtnText;
+            }
         }
     </script>
 
