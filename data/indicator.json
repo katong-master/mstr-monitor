@@ -1,0 +1,3356 @@
+{
+  "metadata": {
+    "status": "Ready",
+    "generatedAtUtc": "2026-04-10T13:55:25Z",
+    "entityId": "strategy",
+    "entityDisplayName": "Strategy (MSTR)",
+    "coinId": "bitcoin",
+    "selectedIndicator": "BTC NAV per Diluted Share (USD)",
+    "formula": "(BTC Holdings / Diluted Shares) \u00d7 BTC Price",
+    "assumption": "Official diluted-share snapshots are forward-filled until the next official Strategy snapshot date.",
+    "shareSnapshots": [
+      {
+        "date": "2024-12-31",
+        "assumedDilutedShares": 281735000
+      },
+      {
+        "date": "2025-03-31",
+        "assumedDilutedShares": 299653000
+      },
+      {
+        "date": "2025-06-30",
+        "assumedDilutedShares": 314216000
+      },
+      {
+        "date": "2025-09-30",
+        "assumedDilutedShares": 320040000
+      },
+      {
+        "date": "2025-12-31",
+        "assumedDilutedShares": 344897000
+      },
+      {
+        "date": "2026-03-22",
+        "assumedDilutedShares": 377847000
+      }
+    ],
+    "sources": [
+      {
+        "name": "CoinGecko public treasury holding chart",
+        "purpose": "Daily Strategy BTC holdings (forward-filled by CoinGecko when empty intervals are included)",
+        "url": "https://api.coingecko.com/api/v3/public_treasury/strategy/bitcoin/holding_chart?days=365&include_empty_intervals=true"
+      },
+      {
+        "name": "CoinGecko Bitcoin market chart",
+        "purpose": "Daily BTC/USD prices",
+        "url": "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365&interval=daily"
+      },
+      {
+        "name": "Strategy shares page",
+        "purpose": "Official assumed diluted share snapshots used as the per-share denominator",
+        "url": "https://www.strategy.com/shares"
+      }
+    ]
+  },
+  "summary": {
+    "latestDate": "2026-04-10",
+    "latestBtcNavPerDilutedShareUsd": 146.615427,
+    "latestBtcPerDilutedShare": 0.00202984,
+    "latestBtcHoldings": 766970.0,
+    "latestBtcPriceUsd": 72229.94,
+    "latestAssumedDilutedShares": 377847000,
+    "navChange30dPct": -2.0485,
+    "navChange90dPct": -17.0766,
+    "btcPriceChange30dPct": 3.3584,
+    "holdingsChange30dBtc": 28239.0,
+    "rowCount": 365,
+    "autoSummary": "Over the last 30 days, estimated BTC NAV per diluted share fell 2.05%. During the same period, BTC price rose 3.36%, holdings changed by +28,239 BTC, and diluted shares changed by +32,950,000. This means the indicator is driven upward by higher BTC prices and new treasury accumulation, but can be diluted when the share count rises faster than BTC-per-share growth."
+  },
+  "series": [
+    {
+      "date": "2025-04-11",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 79596.36,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 141.219764,
+      "dailyHoldingChangeBtc": null
+    },
+    {
+      "date": "2025-04-12",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 83439.29,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 148.037887,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-13",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 85305.1,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 151.348203,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-14",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 83600.82,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 148.324477,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-15",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 84523.45,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 149.96141,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-16",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 83656.49,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 148.423251,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-17",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 84105.78,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 149.220375,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-18",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 84930.91,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 150.684318,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-19",
+      "btcHoldings": 531644.0,
+      "btcPriceUsd": 84433.75,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.0017742,
+      "btcNavPerDilutedShareUsd": 149.80226,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-20",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 85126.66,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 152.89408,
+      "dailyHoldingChangeBtc": 6556.0
+    },
+    {
+      "date": "2025-04-21",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 85073.17,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 152.797995,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-22",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 87452.05,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 157.070651,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-23",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 93576.17,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 168.070043,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-24",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 93605.45,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 168.122643,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-25",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 93872.81,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 168.602846,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-26",
+      "btcHoldings": 538200.0,
+      "btcPriceUsd": 94773.11,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00179608,
+      "btcNavPerDilutedShareUsd": 170.219851,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-27",
+      "btcHoldings": 553555.0,
+      "btcPriceUsd": 94644.07,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00184732,
+      "btcNavPerDilutedShareUsd": 174.837883,
+      "dailyHoldingChangeBtc": 15355.0
+    },
+    {
+      "date": "2025-04-28",
+      "btcHoldings": 553555.0,
+      "btcPriceUsd": 93809.34,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00184732,
+      "btcNavPerDilutedShareUsd": 173.295872,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-29",
+      "btcHoldings": 553555.0,
+      "btcPriceUsd": 95030.61,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00184732,
+      "btcNavPerDilutedShareUsd": 175.551946,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-04-30",
+      "btcHoldings": 553555.0,
+      "btcPriceUsd": 94256.36,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00184732,
+      "btcNavPerDilutedShareUsd": 174.121664,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-01",
+      "btcHoldings": 553555.0,
+      "btcPriceUsd": 94235.75,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00184732,
+      "btcNavPerDilutedShareUsd": 174.083598,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-02",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 96426.95,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 178.741233,
+      "dailyHoldingChangeBtc": 1895.0
+    },
+    {
+      "date": "2025-05-03",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 96855.57,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 179.535747,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-04",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 95922.87,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 177.806854,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-05",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 94326.62,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 174.847979,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-06",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 94758.82,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 175.64913,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-07",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 96854.53,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 179.533827,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-08",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 97026.49,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 179.852583,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-09",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 103076.28,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 191.066725,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-10",
+      "btcHoldings": 555450.0,
+      "btcPriceUsd": 102962.54,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00185364,
+      "btcNavPerDilutedShareUsd": 190.8559,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-11",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 104630.88,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 198.62384,
+      "dailyHoldingChangeBtc": 13390.0
+    },
+    {
+      "date": "2025-05-12",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 103994.06,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 197.41495,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-13",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 102876.83,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 195.294078,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-14",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 104184.49,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 197.776446,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-15",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 103594.43,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 196.65631,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-16",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 103708.85,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 196.873527,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-17",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 103556.03,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 196.583431,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-18",
+      "btcHoldings": 568840.0,
+      "btcPriceUsd": 103212.36,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00189833,
+      "btcNavPerDilutedShareUsd": 195.931032,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-19",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 106030.64,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 203.895954,
+      "dailyHoldingChangeBtc": 7390.0
+    },
+    {
+      "date": "2025-05-20",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 105629.42,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 203.124408,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-21",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 106786.72,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 205.349894,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-22",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 109665.86,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 210.886461,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-23",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 111560.36,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 214.529554,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-24",
+      "btcHoldings": 576230.0,
+      "btcPriceUsd": 107216.67,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00192299,
+      "btcNavPerDilutedShareUsd": 206.176681,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-25",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 107831.36,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 208.805348,
+      "dailyHoldingChangeBtc": 4020.0
+    },
+    {
+      "date": "2025-05-26",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 108861.81,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 210.800711,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-27",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 109377.72,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 211.799712,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-28",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 109068.46,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 211.200863,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-29",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 107838.18,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 208.818555,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-30",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 105745.42,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 204.766106,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-05-31",
+      "btcHoldings": 580250.0,
+      "btcPriceUsd": 104010.92,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193641,
+      "btcNavPerDilutedShareUsd": 201.407415,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-01",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 104687.51,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 202.963864,
+      "dailyHoldingChangeBtc": 705.0
+    },
+    {
+      "date": "2025-06-02",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 105710.01,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 204.946243,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-03",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 105884.74,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 205.285015,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-04",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 105434.48,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 204.412059,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-05",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 104812.92,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 203.207006,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-06",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 101650.74,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 197.076301,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-07",
+      "btcHoldings": 580955.0,
+      "btcPriceUsd": 104409.75,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00193876,
+      "btcNavPerDilutedShareUsd": 202.425359,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-08",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 105681.45,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 205.259439,
+      "dailyHoldingChangeBtc": 1045.0
+    },
+    {
+      "date": "2025-06-09",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 105692.25,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 205.280401,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-10",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 110261.57,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 214.155161,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-11",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 110212.73,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 214.060298,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-12",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 108679.98,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 211.083307,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-13",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 105979.23,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 205.83779,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-14",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 106045.56,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 205.96663,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-15",
+      "btcHoldings": 582000.0,
+      "btcPriceUsd": 105482.91,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00194225,
+      "btcNavPerDilutedShareUsd": 204.873809,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-16",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 105554.49,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 208.570633,
+      "dailyHoldingChangeBtc": 10100.0
+    },
+    {
+      "date": "2025-06-17",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 106951.27,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 211.3306,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-18",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 104683.42,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 206.849442,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-19",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 104722.7,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 206.927038,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-20",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 104690.65,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 206.863719,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-21",
+      "btcHoldings": 592100.0,
+      "btcPriceUsd": 103290.11,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197595,
+      "btcNavPerDilutedShareUsd": 204.096309,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-22",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 101532.57,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 200.706515,
+      "dailyHoldingChangeBtc": 245.0
+    },
+    {
+      "date": "2025-06-23",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 100852.58,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 199.362339,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-24",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 105511.62,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 208.572192,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-25",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 105976.07,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 209.490293,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-26",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 107238.53,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 211.985888,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-27",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 106984.01,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 211.482765,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-28",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 107078.92,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 211.670366,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-29",
+      "btcHoldings": 592345.0,
+      "btcPriceUsd": 107331.59,
+      "assumedDilutedShares": 299653000,
+      "btcPerDilutedShare": 0.00197677,
+      "btcNavPerDilutedShareUsd": 212.169836,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-06-30",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108396.62,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 206.0621,
+      "dailyHoldingChangeBtc": 4980.0
+    },
+    {
+      "date": "2025-07-01",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 107132.8,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 203.659582,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-02",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 105613.4,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 200.771202,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-03",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108824.44,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 206.875401,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-04",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 109602.2,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 208.353925,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-05",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108040.89,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 205.385868,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-06",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108217.47,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 205.72154,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-07",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 109215.2,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 207.618224,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-08",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108300.72,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 205.879795,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-09",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 108953.19,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 207.120151,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-10",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 111327.53,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 211.633772,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-11",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 115879.65,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 220.287357,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-12",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 117571.03,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 223.502662,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-13",
+      "btcHoldings": 597325.0,
+      "btcPriceUsd": 117418.96,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.001901,
+      "btcNavPerDilutedShareUsd": 223.213582,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-14",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 119117.56,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 228.044295,
+      "dailyHoldingChangeBtc": 4225.0
+    },
+    {
+      "date": "2025-07-15",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 119833.67,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 229.415265,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-16",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 117678.19,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 225.288713,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-17",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 118748.16,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 227.33711,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-18",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 119445.37,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 228.671867,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-19",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 117988.95,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 225.883631,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-20",
+      "btcHoldings": 601550.0,
+      "btcPriceUsd": 117901.63,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00191445,
+      "btcNavPerDilutedShareUsd": 225.716461,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-21",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 117256.92,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 226.803342,
+      "dailyHoldingChangeBtc": 6220.0
+    },
+    {
+      "date": "2025-07-22",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 117482.47,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 227.239608,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-23",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 119955.8,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 232.023621,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-24",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 118629.06,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 229.457384,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-25",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 118354.44,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 228.926201,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-26",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 117540.81,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 227.352449,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-27",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 117959.54,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 228.162382,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-28",
+      "btcHoldings": 607770.0,
+      "btcPriceUsd": 119418.91,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00193424,
+      "btcNavPerDilutedShareUsd": 230.985161,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-29",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 118003.3,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 236.141426,
+      "dailyHoldingChangeBtc": 21021.0
+    },
+    {
+      "date": "2025-07-30",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 117853.31,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 235.841268,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-07-31",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 117833.24,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 235.801109,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-01",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 115700.0,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 231.532195,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-02",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 113234.61,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 226.598584,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-03",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 112554.9,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 225.238402,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-04",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 114199.11,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 228.528695,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-05",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 115138.69,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 230.408921,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-06",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 114128.35,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 228.387103,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-07",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 115022.1,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 230.175607,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-08",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 117463.47,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 235.061154,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-09",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 116688.37,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 233.510053,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-10",
+      "btcHoldings": 628791.0,
+      "btcPriceUsd": 116510.08,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200114,
+      "btcNavPerDilutedShareUsd": 233.153284,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-11",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 119266.93,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 238.728949,
+      "dailyHoldingChangeBtc": 155.0
+    },
+    {
+      "date": "2025-08-12",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 118773.8,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 237.741891,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-13",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 120202.53,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 240.601699,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-14",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 123560.99,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 247.32411,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-15",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 118405.6,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 237.004882,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-16",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 117339.79,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 234.87153,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-17",
+      "btcHoldings": 628946.0,
+      "btcPriceUsd": 117501.22,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00200164,
+      "btcNavPerDilutedShareUsd": 235.194644,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-18",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 117542.84,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 235.438808,
+      "dailyHoldingChangeBtc": 430.0
+    },
+    {
+      "date": "2025-08-19",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 116256.41,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 232.862095,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-20",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 112778.34,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 225.89551,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-21",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 114252.4,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 228.848044,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-22",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 112414.4,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 225.166527,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-23",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 116834.25,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 234.019504,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-24",
+      "btcHoldings": 629376.0,
+      "btcPriceUsd": 115359.98,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.002003,
+      "btcNavPerDilutedShareUsd": 231.066543,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-25",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 113399.55,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 228.251707,
+      "dailyHoldingChangeBtc": 3081.0
+    },
+    {
+      "date": "2025-08-26",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 110185.35,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 221.782146,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-27",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 111842.71,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 225.118087,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-28",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 111216.08,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 223.85681,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-29",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 112525.6,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 226.492609,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-30",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 108480.31,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 218.350209,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-08-31",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 108781.96,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 218.957374,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-01",
+      "btcHoldings": 632457.0,
+      "btcPriceUsd": 108253.36,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00201281,
+      "btcNavPerDilutedShareUsd": 217.893411,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-02",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 109162.69,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 221.130035,
+      "dailyHoldingChangeBtc": 4048.0
+    },
+    {
+      "date": "2025-09-03",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 111190.18,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 225.23712,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-04",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 111711.52,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 226.29319,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-05",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 110724.74,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 224.29427,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-06",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 110662.18,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 224.167552,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-07",
+      "btcHoldings": 636505.0,
+      "btcPriceUsd": 110209.19,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00202569,
+      "btcNavPerDilutedShareUsd": 223.249929,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-08",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 111131.99,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 225.81069,
+      "dailyHoldingChangeBtc": 1955.0
+    },
+    {
+      "date": "2025-09-09",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 112025.13,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 227.625467,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-10",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 111547.44,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 226.654843,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-11",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 113975.32,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 231.588098,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-12",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 115503.17,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 234.692542,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-13",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 116160.14,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 236.027463,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-14",
+      "btcHoldings": 638460.0,
+      "btcPriceUsd": 115970.58,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203191,
+      "btcNavPerDilutedShareUsd": 235.642296,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-15",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 115373.56,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 234.621952,
+      "dailyHoldingChangeBtc": 525.0
+    },
+    {
+      "date": "2025-09-16",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 115397.25,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 234.670143,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-17",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 116762.85,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 237.4472,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-18",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 116455.95,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 236.823087,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-19",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 117145.5,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 238.225342,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-20",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 115655.81,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 235.195942,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-21",
+      "btcHoldings": 638985.0,
+      "btcPriceUsd": 115715.52,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203359,
+      "btcNavPerDilutedShareUsd": 235.317357,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-22",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 115304.48,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 234.793397,
+      "dailyHoldingChangeBtc": 850.0
+    },
+    {
+      "date": "2025-09-23",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 112696.74,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 229.483283,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-24",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 112022.17,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 228.109652,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-25",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 113320.57,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 230.753578,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-26",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 108963.53,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 221.881382,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-27",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 109710.21,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 223.401836,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-28",
+      "btcHoldings": 639835.0,
+      "btcPriceUsd": 109654.81,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203629,
+      "btcNavPerDilutedShareUsd": 223.289029,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-09-29",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 112142.57,
+      "assumedDilutedShares": 314216000,
+      "btcPerDilutedShare": 0.00203691,
+      "btcNavPerDilutedShareUsd": 228.424789,
+      "dailyHoldingChangeBtc": 196.0
+    },
+    {
+      "date": "2025-09-30",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 114309.15,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 228.600799,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-01",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 114024.23,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 228.030998,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-02",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 118503.24,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 236.988345,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-03",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 120611.72,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 241.204972,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-04",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 122250.15,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 244.481587,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-05",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 122380.94,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 244.743137,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-06",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 123506.19,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 246.993461,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-07",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 124773.51,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 249.527913,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-08",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 121518.76,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 243.018907,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-09",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 123352.5,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 246.686124,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-10",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 121698.03,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 243.377429,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-11",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 113201.74,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 226.386149,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-12",
+      "btcHoldings": 640031.0,
+      "btcPriceUsd": 110853.12,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00199985,
+      "btcNavPerDilutedShareUsd": 221.689261,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-13",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 115189.57,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 230.44033,
+      "dailyHoldingChangeBtc": 219.0
+    },
+    {
+      "date": "2025-10-14",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 115222.28,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 230.50577,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-15",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 113156.57,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 226.373246,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-16",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 110708.67,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 221.476146,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-17",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 108076.73,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 216.210866,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-18",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 106443.61,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 212.943765,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-19",
+      "btcHoldings": 640250.0,
+      "btcPriceUsd": 107156.0,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200053,
+      "btcNavPerDilutedShareUsd": 214.368926,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-20",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 108621.13,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 217.356986,
+      "dailyHoldingChangeBtc": 168.0
+    },
+    {
+      "date": "2025-10-21",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 110608.57,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 221.333959,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-22",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 108486.1,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 217.086779,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-23",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 107618.43,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 215.350511,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-24",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 110048.52,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 220.213261,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-25",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 110997.8,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 222.112836,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-26",
+      "btcHoldings": 640418.0,
+      "btcPriceUsd": 111620.31,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200106,
+      "btcNavPerDilutedShareUsd": 223.358503,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-27",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 114476.01,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 229.212425,
+      "dailyHoldingChangeBtc": 390.0
+    },
+    {
+      "date": "2025-10-28",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 114182.79,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 228.625322,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-29",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 112950.35,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 226.157627,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-30",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 110046.67,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 220.343663,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-10-31",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 108240.77,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 216.727748,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-01",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 109573.91,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 219.397061,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-02",
+      "btcHoldings": 640808.0,
+      "btcPriceUsd": 110014.14,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200227,
+      "btcNavPerDilutedShareUsd": 220.278522,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-03",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 110650.21,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 221.689375,
+      "dailyHoldingChangeBtc": 397.0
+    },
+    {
+      "date": "2025-11-04",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 106521.09,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 213.416615,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-05",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 101635.27,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 203.627815,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-06",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 103877.96,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 208.12107,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-07",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 101322.64,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 203.001448,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-08",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 103396.08,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 207.155625,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-09",
+      "btcHoldings": 641205.0,
+      "btcPriceUsd": 102290.14,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200352,
+      "btcNavPerDilutedShareUsd": 204.939843,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-10",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 104709.68,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 209.946766,
+      "dailyHoldingChangeBtc": 487.0
+    },
+    {
+      "date": "2025-11-11",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 105909.07,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 212.351596,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-12",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 102960.78,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 206.440151,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-13",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 101521.71,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 203.554769,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-14",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 99730.45,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 199.963236,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-15",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 94456.39,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 189.388552,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-16",
+      "btcHoldings": 641692.0,
+      "btcPriceUsd": 95508.31,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00200504,
+      "btcNavPerDilutedShareUsd": 191.497683,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-17",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 94411.33,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 191.710695,
+      "dailyHoldingChangeBtc": 8178.0
+    },
+    {
+      "date": "2025-11-18",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 92036.73,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 186.888848,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-19",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 92819.76,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 188.478868,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-20",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 91363.28,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 185.521353,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-21",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 86649.97,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 175.950561,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-22",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 85051.8,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 172.705332,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-23",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 84682.62,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 171.955684,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-24",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 86783.85,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 176.222407,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-25",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 88229.36,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 179.157644,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-26",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 87310.33,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 177.29148,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-27",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 90474.23,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 183.716053,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-28",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 91279.06,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 185.350341,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-29",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 90950.38,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 184.682919,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-11-30",
+      "btcHoldings": 649870.0,
+      "btcPriceUsd": 90841.45,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00203059,
+      "btcNavPerDilutedShareUsd": 184.461738,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-01",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 90406.28,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 183.614814,
+      "dailyHoldingChangeBtc": 130.0
+    },
+    {
+      "date": "2025-12-02",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 86281.5,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 175.237382,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-03",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 91344.73,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 185.520798,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-04",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 93619.44,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 190.140715,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-05",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 92140.7,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 187.137413,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-06",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 89307.09,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 181.382357,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-07",
+      "btcHoldings": 650000.0,
+      "btcPriceUsd": 89244.76,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.002031,
+      "btcNavPerDilutedShareUsd": 181.255766,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-08",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 90162.91,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 186.113549,
+      "dailyHoldingChangeBtc": 10624.0
+    },
+    {
+      "date": "2025-12-09",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 90618.05,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 187.053059,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-10",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 92723.21,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 191.398514,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-11",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 92005.14,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 189.916266,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-12",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 92494.18,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 190.925738,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-13",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 90307.26,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 186.411522,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-14",
+      "btcHoldings": 660624.0,
+      "btcPriceUsd": 90257.43,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00206419,
+      "btcNavPerDilutedShareUsd": 186.308661,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-15",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 88230.77,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 185.059665,
+      "dailyHoldingChangeBtc": 10644.0
+    },
+    {
+      "date": "2025-12-16",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 86413.92,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 181.248902,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-17",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87821.89,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 184.202049,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-18",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 86064.95,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 180.516951,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-19",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 85450.33,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 179.227824,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-20",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 88103.86,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 184.793471,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-21",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 88347.94,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 185.305421,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-22",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 88577.42,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 185.786739,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-23",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 88491.12,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 185.605728,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-24",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87406.44,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 183.330658,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-25",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87642.61,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 183.826018,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-26",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87229.78,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 182.960131,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-27",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87305.96,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 183.119906,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-28",
+      "btcHoldings": 671268.0,
+      "btcPriceUsd": 87807.0,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00209745,
+      "btcNavPerDilutedShareUsd": 184.170827,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-29",
+      "btcHoldings": 672497.0,
+      "btcPriceUsd": 87822.91,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00210129,
+      "btcNavPerDilutedShareUsd": 184.54144,
+      "dailyHoldingChangeBtc": 1229.0
+    },
+    {
+      "date": "2025-12-30",
+      "btcHoldings": 672497.0,
+      "btcPriceUsd": 87156.56,
+      "assumedDilutedShares": 320040000,
+      "btcPerDilutedShare": 0.00210129,
+      "btcNavPerDilutedShareUsd": 183.141254,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2025-12-31",
+      "btcHoldings": 672500.0,
+      "btcPriceUsd": 88414.63,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00194986,
+      "btcNavPerDilutedShareUsd": 172.395926,
+      "dailyHoldingChangeBtc": 3.0
+    },
+    {
+      "date": "2026-01-01",
+      "btcHoldings": 672500.0,
+      "btcPriceUsd": 87520.18,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00194986,
+      "btcNavPerDilutedShareUsd": 170.65188,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-02",
+      "btcHoldings": 672500.0,
+      "btcPriceUsd": 88727.67,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00194986,
+      "btcNavPerDilutedShareUsd": 173.006312,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-03",
+      "btcHoldings": 672500.0,
+      "btcPriceUsd": 89926.28,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00194986,
+      "btcNavPerDilutedShareUsd": 175.343429,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-04",
+      "btcHoldings": 672500.0,
+      "btcPriceUsd": 90593.85,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00194986,
+      "btcNavPerDilutedShareUsd": 176.645106,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-05",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 91373.22,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 178.504654,
+      "dailyHoldingChangeBtc": 1283.0
+    },
+    {
+      "date": "2026-01-06",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 93926.8,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 183.493269,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-07",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 93666.86,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 182.985473,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-08",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 91257.16,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 178.277921,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-09",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 90983.52,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 177.743344,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-10",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 90504.9,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 176.808323,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-11",
+      "btcHoldings": 673783.0,
+      "btcPriceUsd": 90442.02,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00195358,
+      "btcNavPerDilutedShareUsd": 176.685489,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-12",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 90819.37,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 181.01097,
+      "dailyHoldingChangeBtc": 13627.0
+    },
+    {
+      "date": "2026-01-13",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 91134.97,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 181.639994,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-14",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 95260.44,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 189.862425,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-15",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 97007.78,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 193.345024,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-16",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 95584.83,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 190.508954,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-17",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 95516.08,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 190.371928,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-18",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 95099.53,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 189.541716,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-19",
+      "btcHoldings": 687410.0,
+      "btcPriceUsd": 93752.71,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00199309,
+      "btcNavPerDilutedShareUsd": 186.857373,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-20",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 92558.46,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 190.463036,
+      "dailyHoldingChangeBtc": 22305.0
+    },
+    {
+      "date": "2026-01-21",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 88312.84,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 181.726567,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-22",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 89354.34,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 183.869729,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-23",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 89443.4,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 184.05298,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-24",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 89412.4,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 183.989192,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-25",
+      "btcHoldings": 709715.0,
+      "btcPriceUsd": 89170.87,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00205776,
+      "btcNavPerDilutedShareUsd": 183.492192,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-26",
+      "btcHoldings": 712647.0,
+      "btcPriceUsd": 86548.32,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206626,
+      "btcNavPerDilutedShareUsd": 178.831367,
+      "dailyHoldingChangeBtc": 2932.0
+    },
+    {
+      "date": "2026-01-27",
+      "btcHoldings": 712647.0,
+      "btcPriceUsd": 88307.86,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206626,
+      "btcNavPerDilutedShareUsd": 182.467033,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-28",
+      "btcHoldings": 712647.0,
+      "btcPriceUsd": 89204.22,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206626,
+      "btcNavPerDilutedShareUsd": 184.319149,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-29",
+      "btcHoldings": 712647.0,
+      "btcPriceUsd": 89162.1,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206626,
+      "btcNavPerDilutedShareUsd": 184.232107,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-30",
+      "btcHoldings": 712647.0,
+      "btcPriceUsd": 84570.41,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206626,
+      "btcNavPerDilutedShareUsd": 174.744484,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-01-31",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 84141.78,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 174.067409,
+      "dailyHoldingChangeBtc": 855.0
+    },
+    {
+      "date": "2026-02-01",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 78725.86,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 162.863282,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-02",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 76937.06,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 159.162733,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-03",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 78767.66,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 162.949755,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-04",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 75638.96,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 156.477287,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-05",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 73172.29,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 151.374401,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-06",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 62853.69,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 130.027903,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-07",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 70523.95,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 145.89568,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-08",
+      "btcHoldings": 713502.0,
+      "btcPriceUsd": 69296.81,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00206874,
+      "btcNavPerDilutedShareUsd": 143.357032,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-09",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 70542.37,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 146.16736,
+      "dailyHoldingChangeBtc": 1142.0
+    },
+    {
+      "date": "2026-02-10",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 70096.41,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 145.243295,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-11",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 68779.91,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 142.515446,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-12",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 66937.58,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 138.698049,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-13",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 66184.58,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 137.137787,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-14",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 68838.87,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 142.637625,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-15",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 69765.6,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 144.557839,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-16",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 68716.58,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 142.384231,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-17",
+      "btcHoldings": 714644.0,
+      "btcPriceUsd": 68907.78,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207205,
+      "btcNavPerDilutedShareUsd": 142.780407,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-18",
+      "btcHoldings": 717130.0,
+      "btcPriceUsd": 67489.46,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207926,
+      "btcNavPerDilutedShareUsd": 140.32802,
+      "dailyHoldingChangeBtc": 2486.0
+    },
+    {
+      "date": "2026-02-19",
+      "btcHoldings": 717130.0,
+      "btcPriceUsd": 66456.35,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207926,
+      "btcNavPerDilutedShareUsd": 138.179935,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-20",
+      "btcHoldings": 717130.0,
+      "btcPriceUsd": 66918.68,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207926,
+      "btcNavPerDilutedShareUsd": 139.141239,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-21",
+      "btcHoldings": 717130.0,
+      "btcPriceUsd": 67970.29,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207926,
+      "btcNavPerDilutedShareUsd": 141.327808,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-22",
+      "btcHoldings": 717130.0,
+      "btcPriceUsd": 67977.91,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00207926,
+      "btcNavPerDilutedShareUsd": 141.343641,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-23",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 67585.12,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 140.642932,
+      "dailyHoldingChangeBtc": 592.0
+    },
+    {
+      "date": "2026-02-24",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 64577.55,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 134.384267,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-25",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 64074.11,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 133.336617,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-26",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 67947.39,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 141.396817,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-27",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 67469.06,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 140.401421,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-02-28",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 65883.99,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 137.102931,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-01",
+      "btcHoldings": 717722.0,
+      "btcPriceUsd": 67008.45,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208097,
+      "btcNavPerDilutedShareUsd": 139.442912,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-02",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 65713.5,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 137.322592,
+      "dailyHoldingChangeBtc": 3015.0
+    },
+    {
+      "date": "2026-03-03",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 68864.04,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 143.906324,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-04",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 68321.62,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 142.772822,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-05",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 72669.77,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 151.859228,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-06",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 70874.99,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 148.108639,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-07",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 68148.28,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 142.410602,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-08",
+      "btcHoldings": 720737.0,
+      "btcPriceUsd": 67271.19,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00208972,
+      "btcNavPerDilutedShareUsd": 140.577727,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-09",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 66036.16,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 141.442103,
+      "dailyHoldingChangeBtc": 17994.0
+    },
+    {
+      "date": "2026-03-10",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 68459.32,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 146.632237,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-11",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 69883.01,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 149.68163,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-12",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 70226.82,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 150.418032,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-13",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 70544.43,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 151.09831,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-14",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 70965.28,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 151.999739,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-15",
+      "btcHoldings": 738731.0,
+      "btcPriceUsd": 71217.1,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00214189,
+      "btcNavPerDilutedShareUsd": 152.539107,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-16",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 72681.91,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 160.383762,
+      "dailyHoldingChangeBtc": 22337.0
+    },
+    {
+      "date": "2026-03-17",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 74858.15,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 165.185958,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-18",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 73926.28,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 163.129645,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-19",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 71255.86,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 157.236965,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-20",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 69871.45,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 154.182048,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-21",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 70552.63,
+      "assumedDilutedShares": 344897000,
+      "btcPerDilutedShare": 0.00220665,
+      "btcNavPerDilutedShareUsd": 155.685162,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-22",
+      "btcHoldings": 761068.0,
+      "btcPriceUsd": 68733.55,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201422,
+      "btcNavPerDilutedShareUsd": 138.444671,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-23",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 67848.88,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 136.847879,
+      "dailyHoldingChangeBtc": 1031.0
+    },
+    {
+      "date": "2026-03-24",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 70892.83,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 142.987382,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-25",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 70524.51,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 142.244506,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-26",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 71309.26,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 143.827313,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-27",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 68791.11,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 138.748321,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-28",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 66321.02,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 133.76626,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-29",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 66321.07,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 133.766359,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-30",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 65970.43,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 133.059143,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-03-31",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 66699.27,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 134.529189,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-01",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 68231.83,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 137.62028,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-02",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 68089.06,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 137.332309,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-03",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 66891.66,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 134.91723,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-04",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 66939.69,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 135.014098,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-05",
+      "btcHoldings": 762099.0,
+      "btcPriceUsd": 67304.25,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00201695,
+      "btcNavPerDilutedShareUsd": 135.749394,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-06",
+      "btcHoldings": 766970.0,
+      "btcPriceUsd": 68985.53,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00202984,
+      "btcNavPerDilutedShareUsd": 140.029772,
+      "dailyHoldingChangeBtc": 4871.0
+    },
+    {
+      "date": "2026-04-07",
+      "btcHoldings": 766970.0,
+      "btcPriceUsd": 68864.23,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00202984,
+      "btcNavPerDilutedShareUsd": 139.783568,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-08",
+      "btcHoldings": 766970.0,
+      "btcPriceUsd": 71975.62,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00202984,
+      "btcNavPerDilutedShareUsd": 146.099195,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-09",
+      "btcHoldings": 766970.0,
+      "btcPriceUsd": 71117.08,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00202984,
+      "btcNavPerDilutedShareUsd": 144.356485,
+      "dailyHoldingChangeBtc": 0.0
+    },
+    {
+      "date": "2026-04-10",
+      "btcHoldings": 766970.0,
+      "btcPriceUsd": 72229.94,
+      "assumedDilutedShares": 377847000,
+      "btcPerDilutedShare": 0.00202984,
+      "btcNavPerDilutedShareUsd": 146.615427,
+      "dailyHoldingChangeBtc": 0.0
+    }
+  ]
+}
