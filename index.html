@@ -25,7 +25,7 @@
     <main class="max-w-[1400px] mx-auto py-8 px-6">
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
             <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-600">以下為 Strategy 的多項 finacial indicator ， 建議可以下滑至mNAV數據著重觀察並利用AI助理</span>
+                <span class="text-sm font-medium text-gray-600">以下為 Strategy 的多項 financial indicator，建議可以下滑至 mNAV 數據著重觀察並利用 AI 助理</span>
                 <span class="text-xs text-blue-500 font-semibold">Source: Saylor Tracker</span>
             </div>
             <div class="w-full h-[600px] bg-slate-50">
@@ -73,9 +73,9 @@
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        // --- 初始化配置 ---
-        // 1. 請務必確認 API Key 正確且無空格
-        const API_KEY = "AIzaSyCEdVJRI0XlB1pzIO27YIjz1u-CwZQATZI".trim(); 
+        // --- 修正：清理 API Key 預防編碼錯誤 ---
+        const RAW_KEY = "AIzaSyCEdVJRI0XlB1pzIO27YIjz1u-CwZQATZI"; 
+        const CLEAN_KEY = RAW_KEY.replace(/[^\x20-\x7E]/g, "").trim();
         
         let genAI;
         let model;
@@ -83,13 +83,14 @@
 
         // 初始化 Gemini 實例
         try {
-            genAI = new GoogleGenerativeAI(API_KEY);
-            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+            genAI = new GoogleGenerativeAI(CLEAN_KEY);
+            // 修正：移除 const 關鍵字，確保 model 賦值給外部變數
+            model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
         } catch (e) {
             console.error("Gemini 初始化失敗:", e);
         }
 
-        // --- 定義全域函數以供 HTML onclick 呼叫 ---
+        // --- 定義全域函數 ---
 
         window.startAIAnalysis = async () => {
             const chatWindow = document.getElementById('chat-window');
@@ -97,33 +98,37 @@
             const inputArea = document.getElementById('chat-input-area');
 
             if (!model) {
-                chatWindow.innerHTML = '<p class="text-red-400">錯誤：AI 模型未正確載入，請檢查 API Key。</p>';
+                chatWindow.innerHTML = '<p class="text-red-400">錯誤：AI 模型載入失敗，請確認網路或 API Key。</p>';
                 return;
             }
 
-            chatWindow.innerHTML = '<p class="text-blue-400 animate-pulse">正在讀取 indicator.json 並分析...</p>';
+            chatWindow.innerHTML = '<p class="text-blue-400 animate-pulse">正在讀取數據並進行深度分析...</p>';
             genBtn.style.display = 'none';
 
             try {
+                // 讀取 indicator.json
                 const response = await fetch('data/indicator.json');
+                if (!response.ok) throw new Error("無法讀取 data/indicator.json，請確認檔案路徑。");
                 const data = await response.json();
 
                 const prompt = `
                     你是一位專業助理。請根據以下數據進行分析：
                     報告日期：${data.summary.latestDate}
-                    BTC持倉：${data.summary.latestBtcHoldings}
-                    NAV：$${data.summary.latestBtcNavPerDilutedShareUsd}
-                    總結：${data.summary.autoSummary}
-                    請用繁體中文提供現狀分析，並邀請使用者提問。
+                    BTC 持倉：${data.summary.latestBtcHoldings} BTC
+                    最新 NAV：$${data.summary.latestBtcNavPerDilutedShareUsd}
+                    數據總結：${data.summary.autoSummary}
+                    
+                    請用繁體中文提供專業的現狀分析。
+                    最後請邀請使用者針對 mNAV 或持倉變化進行提問。
                 `;
 
                 chat = model.startChat({ history: [] });
                 const result = await chat.sendMessage(prompt);
                 
-                chatWindow.innerHTML = `<div class="bg-slate-800 p-3 rounded-lg border-l-4 border-blue-500 text-gray-200">${result.response.text()}</div>`;
+                chatWindow.innerHTML = `<div class="bg-slate-800 p-3 rounded-lg border-l-4 border-blue-500 text-gray-200 leading-relaxed">${result.response.text()}</div>`;
                 inputArea.classList.remove('hidden');
             } catch (error) {
-                chatWindow.innerHTML = `<p class="text-red-400">錯誤：${error.message}</p>`;
+                chatWindow.innerHTML = `<p class="text-red-400">分析失敗：${error.message}</p>`;
                 genBtn.style.display = 'block';
             }
         };
@@ -135,6 +140,7 @@
 
             if (!text || !chat) return;
 
+            // 顯示用戶問題
             chatWindow.innerHTML += `<div class="text-right"><span class="inline-block bg-blue-600 px-3 py-2 rounded-lg mt-4 shadow-md text-white">${text}</span></div>`;
             input.value = '';
 
@@ -147,9 +153,9 @@
             try {
                 const result = await chat.sendMessage(text);
                 loading.remove();
-                chatWindow.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-gray-200 mt-2 border border-slate-700">${result.response.text()}</div>`;
+                chatWindow.innerHTML += `<div class="bg-slate-800 p-3 rounded-lg text-gray-200 mt-2 border border-slate-700 leading-relaxed">${result.response.text()}</div>`;
             } catch (error) {
-                loading.innerText = '呼叫失敗，請稍後再試。';
+                loading.innerText = '連線失敗：' + error.message;
             }
             chatWindow.scrollTop = chatWindow.scrollHeight;
         };
