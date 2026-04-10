@@ -35,7 +35,7 @@
 
         <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden mb-10">
             <div class="p-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <span class="text-sm font-medium text-gray-600">Real-Time Treasury Analytics</span>
+                <span class="text-sm font-medium text-gray-600"以下為 Strategy 的多項 finacial indicator ， 建議可以下滑至mNAV數據著重觀察並利用AI助理</span>
                 <span class="text-xs text-blue-500 font-semibold">Source: Saylor Tracker</span>
             </div>
             
@@ -88,11 +88,13 @@
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        // 安全提示：由於使用 Vercel Static 部署，此 Key 將在前端公開
-        const API_KEY = "你的_GEMINI_API_KEY_貼在這裡"; 
-        const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        // 1. 確保引號內沒有中文、沒有空格
+const RAW_KEY = "AIzaSyCEdVJRI0XlB1pzIO27YIjz1u-CwZQATZI"; 
 
+// 2. 使用 .trim() 強制去除首尾不可見字元
+const API_KEY = RAW_KEY.trim(); 
+
+const genAI = new GoogleGenerativeAI(API_KEY);
         let chat = null;
 
         // 啟動分析：讀取本地 indicator.json
